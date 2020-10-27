@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30611.23
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cubic.Shared.Core", "src\Cubic.Shared.Core.csproj", "{3CF5FFCC-B605-4944-B2F6-7D0ACBD88368}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cubic.Shared.Core.Tests", "tests\Cubic.Shared.Core.Tests\Cubic.Shared.Core.Tests.csproj", "{F4E4C0B5-F06A-4660-9997-4C49764659A5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3CF5FFCC-B605-4944-B2F6-7D0ACBD88368}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3CF5FFCC-B605-4944-B2F6-7D0ACBD88368}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3CF5FFCC-B605-4944-B2F6-7D0ACBD88368}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3CF5FFCC-B605-4944-B2F6-7D0ACBD88368}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F4E4C0B5-F06A-4660-9997-4C49764659A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4E4C0B5-F06A-4660-9997-4C49764659A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4E4C0B5-F06A-4660-9997-4C49764659A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4E4C0B5-F06A-4660-9997-4C49764659A5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1CE8393D-7612-412E-96F4-1652A1AD8A94}
+	EndGlobalSection
+EndGlobal
