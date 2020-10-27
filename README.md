@@ -1,4 +1,4 @@
-# CubicBasicsCore
+# Cubic.Shared.Core
 
 
 
