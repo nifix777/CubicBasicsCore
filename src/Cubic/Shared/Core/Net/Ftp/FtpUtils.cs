@@ -12,11 +12,11 @@ namespace Cubic.Core.Net.Ftp
 
     public static Uri BuildFtpUri(FtpOptions options, string path)
     {
-      var uri = options.Port == FtpUtils.FtpDefaultPort
-      ? options.Host
-      : string.Format("{0}:{1}", options.Host, options.Port);
+      //var uri = options.Port == FtpUtils.FtpDefaultPort
+      //? options.Host
+      //: string.Format("{0}:{1}", options.Host, options.Port);
 
-      uri = options.Host.StartsWith(FtpScheme) ? options.Host : string.Format("{0}{1}", FtpScheme, options.Host);
+      var uri = options.Host.StartsWith(FtpScheme) ? options.Host : string.Format("{0}{1}", FtpScheme, options.Host);
 
       if (!path.IsNullOrEmpty())
       {
