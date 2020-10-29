@@ -18,8 +18,8 @@ jobs:
       env:
         NUGET_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
     - run: dotnet pack --configuration Release --output $GITHUB_WORKSPACE
-    #- run: dotnet nuget push $GITHUB_WORKSPACE/*.nupkg
-    - name: PushGithub
-      run: nuget.exe push $GITHUB_WORKSPACE/*.nupkg -NoSymbols -SkipDuplicate
-      env:
-        NUGET_AUTH_TOKEN: ${{ github.token }}
+    - run: dotnet nuget push $GITHUB_WORKSPACE/*.nupkg -k ${{secrets.GITHUB_TOKEN}}
+    #- name: PushGithub
+    #  run: nuget.exe push $GITHUB_WORKSPACE/*.nupkg -NoSymbols -SkipDuplicate
+    #  env:
+    #    NUGET_AUTH_TOKEN: ${{ github.token }}
