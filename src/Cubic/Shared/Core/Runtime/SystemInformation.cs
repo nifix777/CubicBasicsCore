@@ -4,7 +4,7 @@ namespace Cubic.Core.Runtime
 {
   public class SystemInformation
   {
-    private static DateTime _appStarTime = DateTime.UtcNow;
+    private static DateTimeOffset _appStarTime = DateTimeOffset.UtcNow;
 
 
     public SystemInformation(string applicationName, Version applicationVersion)
@@ -21,8 +21,8 @@ namespace Cubic.Core.Runtime
 
     public Version OperatingSystemVersion => Environment.OSVersion.Version;
 
-    public DateTime LaunchTime => _appStarTime;
+    public DateTimeOffset LaunchTime => _appStarTime;
 
-    public TimeSpan AppUptime => DateTime.UtcNow.Subtract(_appStarTime);
+    public TimeSpan AppUptime => DateTimeOffset.UtcNow.Subtract(_appStarTime);
   }
 }

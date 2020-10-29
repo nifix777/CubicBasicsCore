@@ -8,9 +8,9 @@ namespace Cubic.Core
     /// </summary>
     public class CalendarWeekDin1355
     {
-        private int _yearData;
+        private int _year;
 
-        private int _weekData;
+        private int _week;
 
         public readonly static CalendarWeekDin1355 MinValue;
 
@@ -42,7 +42,7 @@ namespace Cubic.Core
         {
             get
             {
-                return this._yearData * 100 + this._weekData;
+                return this._year * 100 + this._week;
             }
         }
 
@@ -50,7 +50,7 @@ namespace Cubic.Core
         {
             get
             {
-                return this._weekData;
+                return this._week;
             }
         }
 
@@ -58,7 +58,7 @@ namespace Cubic.Core
         {
             get
             {
-                return this._yearData;
+                return this._year;
             }
         }
 
@@ -169,37 +169,37 @@ namespace Cubic.Core
 
         public DateTime GetDayOfWeek(DayOfWeek dayOfWeek)
         {
-            DateTime dateTime = new DateTime(this._yearData, 1, 1);
+            DateTime dateTime = new DateTime(this._year, 1, 1);
             dateTime = dateTime.AddDays((double)((8 - (int)dateTime.DayOfWeek) % (int)(DayOfWeek.Monday | DayOfWeek.Tuesday | DayOfWeek.Wednesday | DayOfWeek.Thursday | DayOfWeek.Friday | DayOfWeek.Saturday)));
             int num = ((new CalendarWeekDin1355(dateTime)).Week == 2 ? -2 : -1);
             int weekdayOrdinal = CalendarWeekDin1355.DayOfWeekToWeekdayOrdinal(dayOfWeek, DayOfWeek.Monday) - 1;
-            return dateTime.AddDays((double)((this._weekData + num) * 7 + weekdayOrdinal));
+            return dateTime.AddDays((double)((this._week + num) * 7 + weekdayOrdinal));
         }
 
         public override int GetHashCode()
         {
-            return this._yearData * 2 + this._weekData * 3;
+            return this._year * 2 + this._week * 3;
         }
 
         private void InternalConstruct(short year, short week)
         {
             if (year == 0 && week == 0)
             {
-                this._yearData = CalendarWeekDin1355.MinValue.Year;
-                this._weekData = CalendarWeekDin1355.MinValue.Week;
+                this._year = CalendarWeekDin1355.MinValue.Year;
+                this._week = CalendarWeekDin1355.MinValue.Week;
                 return;
             }
             year = (short)CultureInfo.InvariantCulture.Calendar.ToFourDigitYear(year);
             if (week > 0 && week < 53)
             {
-                this._yearData = year;
-                this._weekData = week;
+                this._year = year;
+                this._week = week;
                 return;
             }
             CalendarWeekDin1355 calendarWeekDIN1355 = new CalendarWeekDin1355(year, 1);
             calendarWeekDIN1355 = calendarWeekDIN1355 + (week - 1);
-            this._yearData = calendarWeekDIN1355.Year;
-            this._weekData = calendarWeekDIN1355.Week;
+            this._year = calendarWeekDIN1355.Year;
+            this._week = calendarWeekDIN1355.Week;
         }
 
         public static CalendarWeekDin1355 operator +(CalendarWeekDin1355 calendarWeek, int weeks)
@@ -296,8 +296,8 @@ namespace Cubic.Core
                 num3 = num1;
                 year--;
             }
-            this._yearData = year;
-            this._weekData = num3;
+            this._year = year;
+            this._week = num3;
         }
 
         public static CalendarWeekDin1355 Subtract(CalendarWeekDin1355 calendarWeek, int weeks)

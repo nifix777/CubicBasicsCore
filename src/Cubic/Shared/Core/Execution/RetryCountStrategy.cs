@@ -18,7 +18,7 @@ namespace Cubic.Core.Execution
       _delay = delay;
     }
 
-    public ShuoldRetry GetShuoldRetry()
+    public ShouldRetry GetShouldRetry()
     {
       return ShuoldRetryCore;
     }

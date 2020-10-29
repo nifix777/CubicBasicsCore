@@ -8,9 +8,9 @@ namespace Cubic.Core.Security
   public static class ProtectionProvider
   {
     [MethodImpl(MethodImplOptions.NoInlining)]
-    internal static void CheckInternalCall(Assembly callingAssembly, int callerCode)
+    internal static void CheckInternalCall(Assembly callingAssembly, Assembly expectedAssembly, int callerCode)
     {
-      if (string.CompareOrdinal(callingAssembly.GetName().FullName, Assembly.GetExecutingAssembly().GetName().FullName) != 0)
+      if (string.CompareOrdinal(callingAssembly.GetName().FullName, expectedAssembly.GetName().FullName) != 0)
       {
         throw ProtectionProvider.GetUnauthorizedCodeAccessException(callingAssembly.GetName().FullName, "Aufruf über Reflection", callerCode);
       }

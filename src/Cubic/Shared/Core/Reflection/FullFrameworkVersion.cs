@@ -2,7 +2,7 @@
 
 namespace Cubic.Core.Reflection
 {
-  public static class VersionUtil
+  public static class FullFrameworkVersion
   {
     //public static readonly Version Framework00 = new Version(0, 0);
     public static readonly Version Framework20 = new Version(2, 0);

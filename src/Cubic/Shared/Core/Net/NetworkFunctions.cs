@@ -14,6 +14,42 @@ namespace Cubic.Core.Net
 {
   public static class NetworkFunctions
   {
+    private static TimeSpan defaultTimeout = TimeSpan.FromMilliseconds(1500);
+    private static Uri onlineTestDefaultUri = new Uri("http://g.cn/generate_204");
+
+    /// <summary>Checks the internet connection asynchronous.</summary>
+    /// <param name="testUri">The test URI.
+    /// Default is google.com</param>
+    /// <param name="timeout">The timeout.
+    /// Default is 1500ms.</param>
+    /// <returns></returns>
+    public static async Task<bool> CheckInternetConnectionAsync(Uri testUri = null, TimeSpan timeout = default)
+    {
+      if(NetworkInterface.GetIsNetworkAvailable())
+      {
+        var ti = timeout == default ? defaultTimeout : timeout;
+        var uri = testUri ?? onlineTestDefaultUri;
+
+        try
+        {
+          using (var client = new HttpClient())
+          {
+            client.Timeout = ti;
+            using (var response = await client.GetAsync(uri))
+            {
+              return response.IsSuccessStatusCode;
+            }
+          }
+        }
+        catch (Exception)
+        {
+          return false;
+        }
+      }
+
+      return false;
+    }
+
     public static async Task<long> Ping(string host, int timeout = 0)
     {
 
@@ -26,10 +62,10 @@ namespace Cubic.Core.Net
         Ping ping = new Ping();
         var reply = await ping.SendPingAsync(host, timeout);
 
-        if (reply.Status != IPStatus.Success)
-        {
-          return  reply.RoundtripTime;
-        }
+        //if (reply.Status != IPStatus.Success)
+        //{
+        //  return  reply.RoundtripTime;
+        //}
         return reply.RoundtripTime;
       }
       catch (Exception)

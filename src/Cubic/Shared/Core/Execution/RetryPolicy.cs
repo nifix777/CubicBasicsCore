@@ -42,7 +42,7 @@ namespace Cubic.Core.Execution
         if (ErrorDetectionStrategy.IsTransiant(e))
         {
           _retryCount++;
-          var shouldRetry = Strategy.GetShuoldRetry();
+          var shouldRetry = Strategy.GetShouldRetry();
 
           TimeSpan delay;
           if (shouldRetry(_retryCount, e, out delay))
@@ -68,7 +68,7 @@ namespace Cubic.Core.Execution
         if (ErrorDetectionStrategy.IsTransiant(e))
         {
           _retryCount++;
-          var shouldRetry = Strategy.GetShuoldRetry();
+          var shouldRetry = Strategy.GetShouldRetry();
 
           TimeSpan delay;
           if (shouldRetry(_retryCount, e, out delay))
@@ -94,7 +94,7 @@ namespace Cubic.Core.Execution
         if (ErrorDetectionStrategy.IsTransiant(e))
         {
           _retryCount++;
-          var shouldRetry = Strategy.GetShuoldRetry();
+          var shouldRetry = Strategy.GetShouldRetry();
 
           TimeSpan delay;
           if (shouldRetry(_retryCount, e, out delay))
@@ -121,7 +121,7 @@ namespace Cubic.Core.Execution
         if (ErrorDetectionStrategy.IsTransiant(e))
         {
           _retryCount++;
-          var shouldRetry = Strategy.GetShuoldRetry();
+          var shouldRetry = Strategy.GetShouldRetry();
 
           TimeSpan delay;
           if (shouldRetry(_retryCount, e, out delay))
@@ -148,7 +148,7 @@ namespace Cubic.Core.Execution
         if (ErrorDetectionStrategy.IsTransiant(e))
         {
           _retryCount++;
-          var shouldRetry = Strategy.GetShuoldRetry();
+          var shouldRetry = Strategy.GetShouldRetry();
 
           TimeSpan delay;
           if (shouldRetry(_retryCount, e, out delay))
@@ -175,7 +175,7 @@ namespace Cubic.Core.Execution
         if (ErrorDetectionStrategy.IsTransiant(e))
         {
           _retryCount++;
-          var shouldRetry = Strategy.GetShuoldRetry();
+          var shouldRetry = Strategy.GetShouldRetry();
 
           TimeSpan delay;
           if (shouldRetry(_retryCount, e, out delay))
@@ -192,5 +192,5 @@ namespace Cubic.Core.Execution
 
   }
 
-  public delegate bool ShuoldRetry(int retryCount, Exception lastException, out TimeSpan delay);
+  public delegate bool ShouldRetry(int retryCount, Exception lastException, out TimeSpan delay);
 }
