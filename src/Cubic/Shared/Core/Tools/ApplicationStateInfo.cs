@@ -393,17 +393,7 @@ namespace Cubic.Core.Tools
 
     private static int GetExceptionErrorNumber(Exception ex)
     {
-      if (ex is AppException appException)
-      {
-        return appException.ErrorCode;
-      }
-
-      //if (officeLineException.ErrorCode >= 0)
-      //{
-      //  return officeLineException.ErrorCode;
-      //}
-
-      return 0;
+      return ex.HResult;
     }
 
     public ApplicationStateInfoItem GetWarning(int index)
@@ -427,18 +417,12 @@ namespace Cubic.Core.Tools
 
     protected void OnAppended(ApplicationStateInfoItem item)
     {
-      if (this.Appended != null)
-      {
-        this.Appended(this, new ApplicationStateInfoEventArgs(item));
-      }
+      this.Appended?.Invoke(this, new ApplicationStateInfoEventArgs(item));
     }
 
     protected void OnRemoved(ApplicationStateInfoItem item)
     {
-      if (this.Removed != null)
-      {
-        this.Removed(this, new ApplicationStateInfoEventArgs(item));
-      }
+      this.Removed?.Invoke(this, new ApplicationStateInfoEventArgs(item));
     }
 
     private void Parent_Removed(object sender, ApplicationStateInfoEventArgs e)

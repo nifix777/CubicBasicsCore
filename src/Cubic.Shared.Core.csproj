@@ -4,8 +4,16 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <AssemblyVersion>1.0.0.1</AssemblyVersion>
     <FileVersion>1.0.0.1</FileVersion>
+
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <PackageId>Cubic.Shared.Core</PackageId>
+    <Version>0.1.0</Version>
     <Authors>nifix</Authors>
-    <Copyright />
+    <RepositoryUrl>https://github.com/nifix777/CubicSharedCore</RepositoryUrl>
+    <PackageTags>Utils</PackageTags>
+    <UserSecretsId>6c1df4e6-16a3-4a12-b02e-3644d1ee6098</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
