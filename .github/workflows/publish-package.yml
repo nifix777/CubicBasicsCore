@@ -19,7 +19,7 @@ jobs:
         NUGET_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
     #- run: dotnet pack --configuration Release --output $GITHUB_WORKSPACE
     - run: dotnet pack --configuration Release --output artifacts
-    - run: dotnet nuget push artifacts/*.nupkg -s https://nuget.pkg.github.com/nifix777/index.json -k ${{secrets.GITHUB_TOKEN}} -SkipDuplicate
+    - run: dotnet nuget push artifacts/*.nupkg -s https://nuget.pkg.github.com/nifix777/index.json -k ${{secrets.GITHUB_TOKEN}}
     #- name: PushGithub
     #  run: nuget.exe push $GITHUB_WORKSPACE/*.nupkg -NoSymbols -SkipDuplicate
     #  env:
