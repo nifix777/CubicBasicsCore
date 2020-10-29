@@ -23,3 +23,7 @@ jobs:
       run: dotnet build --configuration Release --no-restore
     - name: Test
       run: dotnet test --no-restore --verbosity normal
+    - name: Pack
+      run: dotnet pack --configuration Release --output $GITHUB_WORKSPACE
+    - name: Publish
+      run: dotnet nuget push $GITHUB_WORKSPACE/*.nupkg -s https://nuget.pkg.github.com/nifix777/index.json -k ${{secrets.GITHUB_TOKEN}} --skip-duplicate
