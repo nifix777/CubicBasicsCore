@@ -1,0 +1,23 @@
+name: .NET Core
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  nuget-publish:
+    name: Publish package to GPR
+    runs-on: ubuntu-latest
+    steps:
+    - name: Output Run Number
+      run: echo ${{ github.run_number }}
+    - uses: actions/checkout@v2
+    - uses: actions/setup-dotnet@v1
+      with:
+        source-url: https://nuget.pkg.github.com/nifix777/index.json
+      env:
+        NUGET_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+    - run: dotnet pack --configuration Release --output $GITHUB_WORKSPACE
+    - run: dotnet nuget push $GITHUB_WORKSPACE/*.nupkg
