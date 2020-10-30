@@ -20,8 +20,6 @@ namespace Cubic.Core.Components
 
   internal class ServiceProviderEngineScope : IServiceScope, IServiceProvider
   {
-    // For testing only
-    internal Action<object> _captureDisposableCallback;
 
     private List<IDisposable> _disposables;
 
@@ -75,7 +73,6 @@ namespace Cubic.Core.Components
 
     internal object CaptureDisposable(object service)
     {
-      _captureDisposableCallback?.Invoke(service);
 
       if (!ReferenceEquals(this, service))
       {

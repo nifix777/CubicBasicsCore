@@ -21,10 +21,7 @@ namespace Cubic.Core.Components
         /// <param name="implementationType">The implementation type of the service.</param>
         /// <returns>A reference to this instance after the operation has completed.</returns>
         /// <seealso cref="ServiceLifetime.Transient"/>
-        public static IServiceCollection AddTransient(
-            this IServiceCollection services,
-            Type serviceType,
-            Type implementationType)
+        public static IServiceCollection AddTransient(this IServiceCollection services, Type serviceType, Type implementationType)
         {
             if (services == null)
             {
@@ -55,9 +52,7 @@ namespace Cubic.Core.Components
         /// <returns>A reference to this instance after the operation has completed.</returns>
         /// <seealso cref="ServiceLifetime.Transient"/>
         public static IServiceCollection AddTransient(
-            this IServiceCollection services,
-            Type serviceType,
-            Func<IServiceProvider, object> implementationFactory)
+          this IServiceCollection services, Type serviceType, Func<IServiceProvider, object> implementationFactory)
         {
             if (services == null)
             {
@@ -153,9 +148,7 @@ namespace Cubic.Core.Components
         /// <param name="implementationFactory">The factory that creates the service.</param>
         /// <returns>A reference to this instance after the operation has completed.</returns>
         /// <seealso cref="ServiceLifetime.Transient"/>
-        public static IServiceCollection AddTransient<TService>(
-            this IServiceCollection services,
-            Func<IServiceProvider, TService> implementationFactory)
+        public static IServiceCollection AddTransient<TService>(this IServiceCollection services, Func<IServiceProvider, TService> implementationFactory)
             where TService : class
         {
             if (services == null)
@@ -184,8 +177,7 @@ namespace Cubic.Core.Components
         /// <returns>A reference to this instance after the operation has completed.</returns>
         /// <seealso cref="ServiceLifetime.Transient"/>
         public static IServiceCollection AddTransient<TService, TImplementation>(
-            this IServiceCollection services,
-            Func<IServiceProvider, TImplementation> implementationFactory)
+          this IServiceCollection services, Func<IServiceProvider, TImplementation> implementationFactory)
             where TService : class
             where TImplementation : class, TService
         {
@@ -214,10 +206,7 @@ namespace Cubic.Core.Components
         /// <param name="implementationType">The implementation type of the service.</param>
         /// <returns>A reference to this instance after the operation has completed.</returns>
         /// <seealso cref="ServiceLifetime.Scoped"/>
-        public static IServiceCollection AddScoped(
-            this IServiceCollection services,
-            Type serviceType,
-            Type implementationType)
+        public static IServiceCollection AddScoped(this IServiceCollection services, Type serviceType, Type implementationType)
         {
             if (services == null)
             {
@@ -248,9 +237,7 @@ namespace Cubic.Core.Components
         /// <returns>A reference to this instance after the operation has completed.</returns>
         /// <seealso cref="ServiceLifetime.Scoped"/>
         public static IServiceCollection AddScoped(
-            this IServiceCollection services,
-            Type serviceType,
-            Func<IServiceProvider, object> implementationFactory)
+          this IServiceCollection services, Type serviceType, Func<IServiceProvider, object> implementationFactory)
         {
             if (services == null)
             {
@@ -300,9 +287,7 @@ namespace Cubic.Core.Components
         /// <param name="serviceType">The type of the service to register and the implementation to use.</param>
         /// <returns>A reference to this instance after the operation has completed.</returns>
         /// <seealso cref="ServiceLifetime.Scoped"/>
-        public static IServiceCollection AddScoped(
-            this IServiceCollection services,
-            Type serviceType)
+        public static IServiceCollection AddScoped(this IServiceCollection services, Type serviceType)
         {
             if (services == null)
             {
@@ -346,9 +331,7 @@ namespace Cubic.Core.Components
         /// <param name="implementationFactory">The factory that creates the service.</param>
         /// <returns>A reference to this instance after the operation has completed.</returns>
         /// <seealso cref="ServiceLifetime.Scoped"/>
-        public static IServiceCollection AddScoped<TService>(
-            this IServiceCollection services,
-            Func<IServiceProvider, TService> implementationFactory)
+        public static IServiceCollection AddScoped<TService>(this IServiceCollection services, Func<IServiceProvider, TService> implementationFactory)
             where TService : class
         {
             if (services == null)
@@ -376,9 +359,7 @@ namespace Cubic.Core.Components
         /// <param name="implementationFactory">The factory that creates the service.</param>
         /// <returns>A reference to this instance after the operation has completed.</returns>
         /// <seealso cref="ServiceLifetime.Scoped"/>
-        public static IServiceCollection AddScoped<TService, TImplementation>(
-            this IServiceCollection services,
-            Func<IServiceProvider, TImplementation> implementationFactory)
+        public static IServiceCollection AddScoped<TService, TImplementation>(this IServiceCollection services, Func<IServiceProvider, TImplementation> implementationFactory)
             where TService : class
             where TImplementation : class, TService
         {
@@ -406,10 +387,7 @@ namespace Cubic.Core.Components
         /// <param name="implementationType">The implementation type of the service.</param>
         /// <returns>A reference to this instance after the operation has completed.</returns>
         /// <seealso cref="ServiceLifetime.Singleton"/>
-        public static IServiceCollection AddSingleton(
-            this IServiceCollection services,
-            Type serviceType,
-            Type implementationType)
+        public static IServiceCollection AddSingleton(this IServiceCollection services, Type serviceType, Type implementationType)
         {
             if (services == null)
             {
@@ -439,10 +417,7 @@ namespace Cubic.Core.Components
         /// <param name="implementationFactory">The factory that creates the service.</param>
         /// <returns>A reference to this instance after the operation has completed.</returns>
         /// <seealso cref="ServiceLifetime.Singleton"/>
-        public static IServiceCollection AddSingleton(
-            this IServiceCollection services,
-            Type serviceType,
-            Func<IServiceProvider, object> implementationFactory)
+        public static IServiceCollection AddSingleton(this IServiceCollection services, Type serviceType, Func<IServiceProvider, object> implementationFactory)
         {
             if (services == null)
             {
@@ -492,9 +467,7 @@ namespace Cubic.Core.Components
         /// <param name="serviceType">The type of the service to register and the implementation to use.</param>
         /// <returns>A reference to this instance after the operation has completed.</returns>
         /// <seealso cref="ServiceLifetime.Singleton"/>
-        public static IServiceCollection AddSingleton(
-            this IServiceCollection services,
-            Type serviceType)
+        public static IServiceCollection AddSingleton(this IServiceCollection services, Type serviceType)
         {
             if (services == null)
             {
@@ -538,9 +511,7 @@ namespace Cubic.Core.Components
         /// <param name="implementationFactory">The factory that creates the service.</param>
         /// <returns>A reference to this instance after the operation has completed.</returns>
         /// <seealso cref="ServiceLifetime.Singleton"/>
-        public static IServiceCollection AddSingleton<TService>(
-            this IServiceCollection services,
-            Func<IServiceProvider, TService> implementationFactory)
+        public static IServiceCollection AddSingleton<TService>(this IServiceCollection services, Func<IServiceProvider, TService> implementationFactory)
             where TService : class
         {
             if (services == null)
@@ -568,9 +539,7 @@ namespace Cubic.Core.Components
         /// <param name="implementationFactory">The factory that creates the service.</param>
         /// <returns>A reference to this instance after the operation has completed.</returns>
         /// <seealso cref="ServiceLifetime.Singleton"/>
-        public static IServiceCollection AddSingleton<TService, TImplementation>(
-            this IServiceCollection services,
-            Func<IServiceProvider, TImplementation> implementationFactory)
+        public static IServiceCollection AddSingleton<TService, TImplementation>(this IServiceCollection services, Func<IServiceProvider, TImplementation> implementationFactory)
             where TService : class
             where TImplementation : class, TService
         {
@@ -597,10 +566,7 @@ namespace Cubic.Core.Components
         /// <param name="implementationInstance">The instance of the service.</param>
         /// <returns>A reference to this instance after the operation has completed.</returns>
         /// <seealso cref="ServiceLifetime.Singleton"/>
-        public static IServiceCollection AddSingleton(
-            this IServiceCollection services,
-            Type serviceType,
-            object implementationInstance)
+        public static IServiceCollection AddSingleton(this IServiceCollection services, Type serviceType, object implementationInstance)
         {
             if (services == null)
             {
@@ -631,9 +597,7 @@ namespace Cubic.Core.Components
         /// <param name="implementationInstance">The instance of the service.</param>
         /// <returns>A reference to this instance after the operation has completed.</returns>
         /// <seealso cref="ServiceLifetime.Singleton"/>
-        public static IServiceCollection AddSingleton<TService>(
-            this IServiceCollection services,
-            TService implementationInstance)
+        public static IServiceCollection AddSingleton<TService>(this IServiceCollection services, TService implementationInstance)
             where TService : class
         {
             if (services == null)
@@ -649,22 +613,14 @@ namespace Cubic.Core.Components
             return services.AddSingleton(typeof(TService), implementationInstance);
         }
 
-        private static IServiceCollection Add(
-            IServiceCollection collection,
-            Type serviceType,
-            Type implementationType,
-            ServiceLifetime lifetime)
+        private static IServiceCollection Add(IServiceCollection collection, Type serviceType, Type implementationType, ServiceLifetime lifetime)
         {
             var descriptor = new ServiceDescriptor(serviceType, implementationType, lifetime);
             collection.Add(descriptor);
             return collection;
         }
 
-        private static IServiceCollection Add(
-            IServiceCollection collection,
-            Type serviceType,
-            Func<IServiceProvider, object> implementationFactory,
-            ServiceLifetime lifetime)
+        private static IServiceCollection Add(IServiceCollection collection, Type serviceType, Func<IServiceProvider, object> implementationFactory, ServiceLifetime lifetime)
         {
             var descriptor = new ServiceDescriptor(serviceType, implementationFactory, lifetime);
             collection.Add(descriptor);
@@ -713,9 +669,7 @@ namespace Cubic.Core.Components
         /// <param name="collection">The <see cref="IServiceCollection"/>.</param>
         /// <param name="descriptor">The <see cref="ServiceDescriptor"/> to replace with.</param>
         /// <returns></returns>
-        public static IServiceCollection Replace(
-            this IServiceCollection collection,
-            ServiceDescriptor descriptor)
+        public static IServiceCollection Replace(this IServiceCollection collection, ServiceDescriptor descriptor)
         {
             if (collection == null)
             {
@@ -754,9 +708,7 @@ namespace Cubic.Core.Components
         /// <see cref="TryAddEnumerable(IServiceCollection, ServiceDescriptor)"/> will prevent registration
         /// of multiple implementation types.
         /// </remarks>
-        public static void TryAddEnumerable(
-            this IServiceCollection services,
-            ServiceDescriptor descriptor)
+        public static void TryAddEnumerable(this IServiceCollection services, ServiceDescriptor descriptor)
         {
             if (services == null)
             {
@@ -805,9 +757,7 @@ namespace Cubic.Core.Components
         /// <see cref="TryAddEnumerable(IServiceCollection, ServiceDescriptor)"/> will prevent registration
         /// of multiple implementation types.
         /// </remarks>
-        public static void TryAddEnumerable(
-            this IServiceCollection services,
-            IEnumerable<ServiceDescriptor> descriptors)
+        public static void TryAddEnumerable(this IServiceCollection services, IEnumerable<ServiceDescriptor> descriptors)
         {
             if (services == null)
             {

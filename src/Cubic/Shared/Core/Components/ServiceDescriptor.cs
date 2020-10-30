@@ -19,10 +19,7 @@ namespace Cubic.Core.Components
     /// <param name="serviceType">The <see cref="Type"/> of the service.</param>
     /// <param name="implementationType">The <see cref="Type"/> implementing the service.</param>
     /// <param name="lifetime">The <see cref="ServiceLifetime"/> of the service.</param>
-    public ServiceDescriptor(
-        Type serviceType,
-        Type implementationType,
-        ServiceLifetime lifetime)
+    public ServiceDescriptor(Type serviceType, Type implementationType, ServiceLifetime lifetime)
         : this(serviceType, lifetime)
     {
       if (serviceType == null)
@@ -44,9 +41,7 @@ namespace Cubic.Core.Components
     /// </summary>
     /// <param name="serviceType">The <see cref="Type"/> of the service.</param>
     /// <param name="instance">The instance implementing the service.</param>
-    public ServiceDescriptor(
-        Type serviceType,
-        object instance)
+    public ServiceDescriptor(Type serviceType, object instance)
         : this(serviceType, ServiceLifetime.Singleton)
     {
       if (serviceType == null)
@@ -69,9 +64,7 @@ namespace Cubic.Core.Components
     /// <param name="factory">A factory used for creating service instances.</param>
     /// <param name="lifetime">The <see cref="ServiceLifetime"/> of the service.</param>
     public ServiceDescriptor(
-        Type serviceType,
-        Func<IServiceProvider, object> factory,
-        ServiceLifetime lifetime)
+      Type serviceType, Func<IServiceProvider, object> factory, ServiceLifetime lifetime)
         : this(serviceType, lifetime)
     {
       if (serviceType == null)
@@ -272,10 +265,7 @@ namespace Cubic.Core.Components
     /// <typeparam name="TImplementation">The type of the implementation.</typeparam>
     /// <param name="implementationFactory">A factory to create new instances of the service implementation.</param>
     /// <returns>A new instance of <see cref="ServiceDescriptor"/>.</returns>
-    public static ServiceDescriptor Scoped<TService, TImplementation>(
-        Func<IServiceProvider, TImplementation> implementationFactory)
-        where TService : class
-        where TImplementation : class, TService
+    public static ServiceDescriptor Scoped<TService, TImplementation>(Func<IServiceProvider, TImplementation> implementationFactory) where TService : class where TImplementation : class, TService
     {
       if (implementationFactory == null)
       {
@@ -293,8 +283,7 @@ namespace Cubic.Core.Components
     /// <typeparam name="TService">The type of the service.</typeparam>
     /// <param name="implementationFactory">A factory to create new instances of the service implementation.</param>
     /// <returns>A new instance of <see cref="ServiceDescriptor"/>.</returns>
-    public static ServiceDescriptor Scoped<TService>(Func<IServiceProvider, TService> implementationFactory)
-        where TService : class
+    public static ServiceDescriptor Scoped<TService>(Func<IServiceProvider, TService> implementationFactory) where TService : class
     {
       if (implementationFactory == null)
       {
@@ -459,9 +448,7 @@ namespace Cubic.Core.Components
     /// <param name="serviceType">The type of the service.</param>
     /// <param name="implementationInstance">The instance of the implementation.</param>
     /// <returns>A new instance of <see cref="ServiceDescriptor"/>.</returns>
-    public static ServiceDescriptor Singleton(
-        Type serviceType,
-        object implementationInstance)
+    public static ServiceDescriptor Singleton(Type serviceType, object implementationInstance)
     {
       if (serviceType == null)
       {

@@ -72,13 +72,13 @@ namespace Cubic.Core.Runtime
         //will do the job for the vast majority of paths. Moreso, it will not cause any exceptions of its own.
       }
 
-      return String.Empty;
+      return string.Empty;
     }
 
-    public static bool IsLocalResource(this Uri uri)
-    {
-      return uri.Scheme.Equals("ms-appx", StringComparison.OrdinalIgnoreCase)
-             || uri.Scheme.Equals("ms-appdata", StringComparison.OrdinalIgnoreCase);
-    }
+    //public static bool IsLocalResource(this Uri uri)
+    //{
+    //  return uri.Scheme.Equals("ms-appx", StringComparison.OrdinalIgnoreCase)
+    //         || uri.Scheme.Equals("ms-appdata", StringComparison.OrdinalIgnoreCase);
+    //}
   }
 }
