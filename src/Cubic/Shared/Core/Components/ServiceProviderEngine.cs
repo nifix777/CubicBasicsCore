@@ -8,7 +8,7 @@ using System.Linq;
 
 namespace Cubic.Core.Components
 {
-  internal class ServiceProviderEngine : IServiceProviderEngine, IServiceProvider
+  public class ServiceProviderEngine : IServiceProviderEngine, IServiceProvider
   {
     private IServiceCollection services;
 
@@ -105,7 +105,8 @@ namespace Cubic.Core.Components
 
     private object ConstructType(ServiceDescriptor descriptor)
     {
-      return descriptor.ImplementationType.Construct(GetRealService, (parameter) => !parameter.HasDefaultValue);
+      return ServiceContainerExtensions.InjectionCallback(this, descriptor.ImplementationType);
+      //return descriptor.ImplementationType.Construct(GetRealService, (parameter) => !parameter.HasDefaultValue);
     }
 
     private ServiceDescriptor FindDescriptor(Type serviceType)
