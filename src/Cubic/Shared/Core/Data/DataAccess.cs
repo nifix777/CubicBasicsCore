@@ -11,7 +11,6 @@ namespace Cubic.Core.Data
     {
       AccessStringBuilder = new DbConnectionStringBuilder();
       AccessorType = AccessorType.INDIVIDUAL;
-      AccessName = string.Empty;
     }
 
     public DataAccess(AccessorType accessorType, string name) : this()

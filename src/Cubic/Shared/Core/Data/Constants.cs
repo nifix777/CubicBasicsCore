@@ -8,7 +8,7 @@ namespace Cubic.Core.Data
 {
   internal static class Constants
   {
-    public const string CommonConnectionString = "COMMON";
+    public const string CommonConnectionString = "DATAACCESS";
     public const string DefaultAccessName = "DEFAULT";
   }
 }
