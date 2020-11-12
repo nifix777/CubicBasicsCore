@@ -4,7 +4,7 @@ using Xunit;
 namespace Cubic.Basics.Testing.Reflection
 {
   
-  public class DpTests
+  public class DependencyObjectTests
   {
     [Fact]
     public void TestDpRegister()

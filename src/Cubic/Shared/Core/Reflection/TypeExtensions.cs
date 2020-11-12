@@ -115,13 +115,13 @@ namespace Cubic.Core.Reflection
 
     public static object Construct(this Type type, Func<Type, object> constructionParameterFunc, Func<ParameterInfo, bool> parameterFilter)
     {
-        var consstructor = type.GetConstructors().FirstOrDefault();
+        var constructor = type.GetConstructors().FirstOrDefault();
 
-        if (consstructor == null) throw new Exception(String.Format("Missing ctor on Type: {0}", type.FullName));
+        if (constructor == null) throw new Exception(String.Format("Missing ctor on Type: {0}", type.FullName));
 
-        var arguments = Enumerable.ToArray(consstructor.GetParameters().Where(parameterFilter).Select(p => constructionParameterFunc(p.ParameterType)));
+        var arguments = Enumerable.ToArray(constructor.GetParameters().Where(parameterFilter).Select(p => constructionParameterFunc(p.ParameterType)));
 
-        return consstructor.Invoke(arguments);
+        return constructor.Invoke(arguments);
 
     }
 
