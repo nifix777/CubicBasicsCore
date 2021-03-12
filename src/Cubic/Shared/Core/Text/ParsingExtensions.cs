@@ -16,6 +16,33 @@ namespace Cubic.Core.Text
   public static class ParsingExtensions
   {
 
+    public static string Quote(this string text, char escape = '\\', char delimiter = '\"')
+    {
+      var sb = new StringBuilder();
+
+      sb.Append(delimiter);
+      foreach (var c in text)
+      {
+        if(escape == c)
+        {
+          sb.Append(escape, 2);
+          sb.Append(c);
+        }
+        else if(delimiter == c)
+        {
+          sb.Append(escape);
+          sb.Append(c);
+        }
+        else
+        {
+          sb.Append(c);
+        }
+      }
+      sb.Append(delimiter);
+
+      return sb.ToString();
+    }
+
     /// <summary>
     /// Gets the culture information.
     /// </summary>
