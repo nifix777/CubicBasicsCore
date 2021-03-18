@@ -280,5 +280,28 @@ namespace Cubic.Core.Text
 
       return sql;
     }
+
+    /// <summary>Encodes the name of an SQL-Object.</summary>
+    /// <param name="name">The name of the SQL-Object.</param>
+    /// <returns>The encoded string if necessary.</returns>
+    /// <example>"mytable." as an SQL-Name converts to "mytable%2E".
+    /// <code></code></example>
+    public static string EncodeSqlName(string name)
+    {
+      System.Text.StringBuilder stringBuilder = new System.Text.StringBuilder(255);
+      for (int i = 0; i < name.Length; i++)
+      {
+        if (char.IsControl(name[i]) || name[i] == '.' || "\\/:%<>*?[]|".Contains(name[i].ToString()))
+        {
+          stringBuilder.Append('%');
+          stringBuilder.Append(string.Format("{0:X2}", Convert.ToByte(name[i])));
+        }
+        else
+        {
+          stringBuilder.Append(name[i]);
+        }
+      }
+      return stringBuilder.ToString();
+    }
   }
 }

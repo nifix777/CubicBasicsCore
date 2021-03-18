@@ -182,5 +182,10 @@ namespace Cubic.Core.Text
 
       return text;
     }
+
+    public static int IndexAfter(this string source, string term, StringComparison comparison)
+    {
+      return source.IndexOf(term, comparison) + term.Length;
+    }
   }
 }
