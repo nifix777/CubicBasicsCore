@@ -1,11 +1,11 @@
-﻿using Cubic.Core.Net.Ftp;
+﻿
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Cubic.Core.Net.Ftp
+namespace Cubic.Shared.Core.Net.Ftp
 {
   public class FtpResult
   {

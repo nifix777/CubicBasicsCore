@@ -3,7 +3,7 @@ using System.Diagnostics;
 using Cubic.Core.Diagnostics;
 using Cubic.Core.Net;
 using Cubic.Core.Security;
-using Cubic.Core.Net.Ftp;
+using Cubic.Shared.Core.Net.Ftp;
 using Xunit;
 
 namespace Cubic.Core.Testing.Net

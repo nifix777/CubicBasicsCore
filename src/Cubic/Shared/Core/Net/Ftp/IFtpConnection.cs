@@ -5,7 +5,7 @@ using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Cubic.Core.Net.Ftp
+namespace Cubic.Shared.Core.Net.Ftp
 {
   public interface IFtpConnection
   {

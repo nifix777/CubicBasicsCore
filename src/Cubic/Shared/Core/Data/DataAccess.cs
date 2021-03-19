@@ -91,6 +91,11 @@ namespace Cubic.Core.Data
       info.AddValue(Constants.CommonConnectionString, AccessConnectionString, typeof(string));
     }
 
+    protected DataAccess(SerializationInfo info, StreamingContext context)
+    {
+      AccessConnectionString =  info.GetString(Constants.CommonConnectionString);
+    }
+
     public AccessorType AccessorType
     {
       get => AccessStringBuilder[nameof(AccessorType)].ToString().ToEnum<AccessorType>();

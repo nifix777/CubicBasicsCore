@@ -1,7 +1,7 @@
 ﻿using System;
 using Cubic.Core.Text;
 
-namespace Cubic.Core.Net.Ftp
+namespace Cubic.Shared.Core.Net.Ftp
 {
   public static class FtpUtils
   {

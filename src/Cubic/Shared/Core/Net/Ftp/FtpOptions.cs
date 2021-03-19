@@ -3,7 +3,7 @@ using System.Net;
 using Cubic.Core.Net;
 using Cubic.Core.Security;
 
-namespace Cubic.Core.Net.Ftp
+namespace Cubic.Shared.Core.Net.Ftp
 {
   public class FtpOptions
   {

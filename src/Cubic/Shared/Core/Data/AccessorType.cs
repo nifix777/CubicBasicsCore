@@ -16,21 +16,7 @@
 
     #region Files
 
-    #region MS Office
-
-    MSEXCEL = 60,
-
-    MSWORD = 70,
-
-    #endregion
-
-    CSV = 80,
-
-    BINARY = 81,
-
-    XML = 82,
-
-    JSON = 83,
+    File = 80,
 
     #endregion
 
@@ -40,25 +26,21 @@
 
     FTP = 100,
 
-    SFTP = 101,
-
     #endregion
 
 
     #region Email
 
-    IMAP = 200,
+    SMTP = 200,
 
-    POP3 = 210,
-
-    SMTP = 250,
+    Postbox = 250,
 
     #endregion
 
 
     #region Http
 
-    SIMPLEHTTPTRANSPORT = 300,
+    HTTP = 300
 
     #endregion
 

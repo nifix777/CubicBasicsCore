@@ -8,7 +8,7 @@ using Cubic.Core;
 using Cubic.Core.Collections;
 using Cubic.Core.Text;
 
-namespace Cubic.Core.Net.Ftp
+namespace Cubic.Shared.Core.Net.Ftp
 {
   public class FtpConnection : IFtpConnection
   {
@@ -30,13 +30,14 @@ namespace Cubic.Core.Net.Ftp
 
       var reqeustUri = BuildUri(path);
 
+
       if(reqeustUri.Scheme != Uri.UriSchemeFtp) throw new InvalidOperationException(string.Format("Uri '{0}' is not a valid FTP-Uri"));
 
       var request = (FtpWebRequest)FtpWebRequest.Create(reqeustUri);
 
       if (_options.Credentail != null)
       {
-        request.Credentials = new NetworkCredential(_options.Credentail.UserName, _options.Credentail.Password);
+        request.Credentials = _options.Credentail;
       }
 
       if (_options.KeepAlive)

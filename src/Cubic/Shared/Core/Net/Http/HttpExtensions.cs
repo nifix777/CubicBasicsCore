@@ -4,7 +4,6 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using System.Xml;
 using Cubic.Core.Collections;
-using Cubic.Core.Threading;
 
 namespace Cubic.Core.Net.Http
 {

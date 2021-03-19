@@ -1,7 +1,7 @@
 using System;
 using System.Runtime.Serialization;
 
-namespace Cubic.Core.Net.Ftp
+namespace Cubic.Shared.Core.Net.Ftp
 {
   [Serializable]
   public class FtpException : Exception
