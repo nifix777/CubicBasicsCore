@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Data.Common;
+using System.Globalization;
 using System.Runtime.Serialization;
 
 namespace Cubic.Core.Data
@@ -134,6 +135,49 @@ namespace Cubic.Core.Data
       {
         return ((int) AccessorType * 397) ^ (AccessName != null ? AccessName.GetHashCode() : 0);
       }
+    }
+
+    public delegate bool TryGetValueDelegate(string key, out object value);
+    public static short GetInt16(string key, TryGetValueDelegate tryGetValue, short defaultValue = default)
+    {
+      return tryGetValue(key, out var value)
+        ? Convert.ToInt16(value, CultureInfo.InvariantCulture)
+        : defaultValue;
+    }
+
+    public static int GetInt32(string key, TryGetValueDelegate tryGetValue, int defaultValue = default)
+    {
+      return tryGetValue(key, out var value)
+        ? Convert.ToInt32(value, CultureInfo.InvariantCulture)
+        : defaultValue;
+    }
+
+    public static long GetInt64(string key, TryGetValueDelegate tryGetValue, long defaultValue = default)
+    {
+      return tryGetValue(key, out var value)
+        ? Convert.ToInt64(value, CultureInfo.InvariantCulture)
+        : defaultValue;
+    }
+
+    public static string GetString(string key, TryGetValueDelegate tryGetValue, string defaultValue = default)
+    {
+      return tryGetValue(key, out var value)
+        ? Convert.ToString(value, CultureInfo.InvariantCulture)
+        : defaultValue;
+    }
+
+    public static bool GetBoolean(string key, TryGetValueDelegate tryGetValue, bool defaultValue = default)
+    {
+      return tryGetValue(key, out var value)
+        ? Convert.ToBoolean(value, CultureInfo.InvariantCulture)
+        : defaultValue;
+    }
+
+    public static byte[] GetBytes(string key, TryGetValueDelegate tryGetValue, byte[] defaultValue = default)
+    {
+      return tryGetValue(key, out var value)
+        ? (byte[])value
+        : defaultValue;
     }
   }
 }

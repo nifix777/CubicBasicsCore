@@ -12,11 +12,11 @@ namespace Cubic.Core.Runtime
     public static IDictionary<string, string> GetParameters(this Uri uri)
     {
       return uri
-        .OriginalString
-        .Split(new[] { '?', '&' }, StringSplitOptions.RemoveEmptyEntries)
+        .Query
+        .Split(new[] { '&' }, StringSplitOptions.RemoveEmptyEntries)
         .Select(p => p.Split(new[] { '=' }))
         .Where(parts => parts.Count() > 1)
-        .ToDictionary(parts => parts[0], parts => String.Join("=", parts.Skip(1)));
+        .ToDictionary(parts => parts[0], parts => string.Join("=", parts.Skip(1)));
     }
 
     /// <summary>

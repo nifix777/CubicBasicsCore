@@ -574,5 +574,68 @@ namespace Cubic.Core.Tools
     {
       return Converter.ConvertValue(value, destinationType, (useCurrentCulture ? CultureInfo.CurrentCulture : CultureInfo.InvariantCulture));
     }
+
+    public static TryParseDelegate GetTryParse(Type type)
+    {
+      var method = type.GetMethod("TryParse", new[] { typeof(string), type });
+
+      if (method == null) return null;
+
+      return (TryParseDelegate)method.CreateDelegate(typeof(TryParseDelegate));
+    }
+
+
+    public static TryParseFormatDelegate GetTryParseFormat(Type type)
+    {
+      var method = type.GetMethod("TryParse", new[] { typeof(string), typeof(string), type });
+
+      if (method == null) return null;
+
+      return (TryParseFormatDelegate)method.CreateDelegate(typeof(TryParseFormatDelegate));
+    }
+
+    public static bool TryParse(Type type, string input, out object value, string format = null)
+    {
+
+      if(format == null)
+      {
+        var tryParseMethod = GetTryParse(type);
+        if(tryParseMethod != null)
+        {
+          if(tryParseMethod(input, out value)) return true;
+        }
+      }
+      else
+      {
+        var tryParseMethod = GetTryParseFormat(type);
+        if (tryParseMethod != null)
+        {
+          if (tryParseMethod(input, format, out value)) return true;
+        }
+      }
+
+      var converter = TypeDescriptor.GetConverter(type);
+
+      if(converter != null && converter.CanConvertFrom(typeof(string)))
+      {
+        value = converter.ConvertFrom(input);
+        return true;
+      }
+
+      try
+      {
+        value = System.Convert.ChangeType(input, type);
+        return true;
+      }
+      catch (Exception)
+      {
+        value = type.GetDefault();
+        return false;
+      }
+    }
+
+    public delegate bool TryParseDelegate(string input, out object output);
+
+    public delegate bool TryParseFormatDelegate(string input, string format, out object output);
   }
 }

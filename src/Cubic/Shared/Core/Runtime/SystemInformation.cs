@@ -24,5 +24,6 @@ namespace Cubic.Core.Runtime
     public DateTimeOffset LaunchTime => _appStarTime;
 
     public TimeSpan AppUptime => DateTimeOffset.UtcNow.Subtract(_appStarTime);
+
   }
 }

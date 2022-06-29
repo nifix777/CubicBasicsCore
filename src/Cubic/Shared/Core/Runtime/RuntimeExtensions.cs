@@ -8,6 +8,30 @@ namespace Cubic.Core.Runtime
 {
   public class RuntimeExtensions
   {
+
+    private const string FrameworkName = ".NET";
+    private static string s_frameworkDescription;
+    public static string FrameworkDescription
+    {
+      get
+      {
+        if (s_frameworkDescription == null)
+        {
+          var versionString = typeof(object).Assembly.GetCustomAttribute<AssemblyInformationalVersionAttribute>()?.InformationalVersion;
+
+          // Strip the git hash if there is one
+          int plusIndex = versionString.IndexOf('+');
+          if (plusIndex >= 0)
+          {
+            versionString = versionString.Substring(0, plusIndex);
+          }
+
+          s_frameworkDescription = !string.IsNullOrEmpty(versionString.Trim()) ? $"{FrameworkName} {versionString}" : FrameworkName;
+        }
+
+        return s_frameworkDescription;
+      }
+    }
     public static string GetCurrentAppRoot()
     {
       try
@@ -98,5 +122,7 @@ namespace Cubic.Core.Runtime
     }
 
     public static bool Is64BitProcess => Marshal.SizeOf<IntPtr>() == 8;
+
+
   }
 }
